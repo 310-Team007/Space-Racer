@@ -52,6 +52,8 @@ namespace Unit06
         public static string SPACE = "space";
         public static string ENTER = "enter";
         public static string PAUSE = "p";
+        public static string UP = "up";
+        public static string DOWN = "down";
 
         // SCENES
         public static string NEW_GAME = "new_game";

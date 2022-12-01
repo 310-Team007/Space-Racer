@@ -24,6 +24,14 @@ namespace Unit06.Game.Scripting
             {
                 racket.SwingRight();
             }
+            else if (_keyboardService.IsKeyDown(Constants.UP))
+            {
+                racket.SwingUp();
+            }
+            else if (_keyboardService.IsKeyDown(Constants.DOWN))
+            {
+                racket.SwingDown();
+            }
             else
             {
                 racket.StopMoving();
