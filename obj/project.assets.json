@@ -120,19 +120,19 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\jacob\\.nuget\\packages\\": {}
+    "C:\\Users\\david\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\jacob\\Documents\\BYUI\\Fall 2022\\Programming with Classes\\group final\\cse210-final\\Unit06.csproj",
+      "projectUniqueName": "C:\\Users\\david\\Documents\\BYU-I\\Fall 2022\\CSE 210\\CSE 210 Projects\\Team Projects\\cse210_final_project\\cse210-final\\Unit06.csproj",
       "projectName": "Unit06",
-      "projectPath": "C:\\Users\\jacob\\Documents\\BYUI\\Fall 2022\\Programming with Classes\\group final\\cse210-final\\Unit06.csproj",
-      "packagesPath": "C:\\Users\\jacob\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\jacob\\Documents\\BYUI\\Fall 2022\\Programming with Classes\\group final\\cse210-final\\obj\\",
+      "projectPath": "C:\\Users\\david\\Documents\\BYU-I\\Fall 2022\\CSE 210\\CSE 210 Projects\\Team Projects\\cse210_final_project\\cse210-final\\Unit06.csproj",
+      "packagesPath": "C:\\Users\\david\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\david\\Documents\\BYU-I\\Fall 2022\\CSE 210\\CSE 210 Projects\\Team Projects\\cse210_final_project\\cse210-final\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "C:\\Users\\jacob\\AppData\\Roaming\\NuGet\\NuGet.Config"
+        "C:\\Users\\david\\AppData\\Roaming\\NuGet\\NuGet.Config"
       ],
       "originalTargetFrameworks": [
         "net6.0"
