@@ -239,12 +239,16 @@ namespace Unit06.Game.Directing
             Point position = new Point(x, y);
             Point size = new Point(Constants.RACKET_WIDTH, Constants.RACKET_HEIGHT);
             Point velocity = new Point(0, 0);
+
+            for (int i = 0; i < Constants.NUMBER_ROCKETS; i++)
+                {
+                    Body body = new Body(position, size, velocity);
+                    Animation animation = new Animation(Constants.RACKET_IMAGES, Constants.RACKET_RATE, 0);
+                    Racket racket = new Racket(body, animation, false);
         
-            Body body = new Body(position, size, velocity);
-            Animation animation = new Animation(Constants.RACKET_IMAGES, Constants.RACKET_RATE, 0);
-            Racket racket = new Racket(body, animation, false);
-        
-            cast.AddActor(Constants.RACKET_GROUP, racket);
+                    cast.AddActor(Constants.RACKET_GROUP, racket);
+                }
+            
         }
 
         private void AddScore(Cast cast)

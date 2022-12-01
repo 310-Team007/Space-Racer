@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\jacob\\Documents\\BYUI\\Fall 2022\\Programming with Classes\\cse210-articulate\\Unit06\\Unit06.csproj": {}
+    "C:\\Users\\jacob\\Documents\\BYUI\\Fall 2022\\Programming with Classes\\group final\\cse210-final\\Unit06.csproj": {}
   },
   "projects": {
-    "C:\\Users\\jacob\\Documents\\BYUI\\Fall 2022\\Programming with Classes\\cse210-articulate\\Unit06\\Unit06.csproj": {
+    "C:\\Users\\jacob\\Documents\\BYUI\\Fall 2022\\Programming with Classes\\group final\\cse210-final\\Unit06.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\jacob\\Documents\\BYUI\\Fall 2022\\Programming with Classes\\cse210-articulate\\Unit06\\Unit06.csproj",
+        "projectUniqueName": "C:\\Users\\jacob\\Documents\\BYUI\\Fall 2022\\Programming with Classes\\group final\\cse210-final\\Unit06.csproj",
         "projectName": "Unit06",
-        "projectPath": "C:\\Users\\jacob\\Documents\\BYUI\\Fall 2022\\Programming with Classes\\cse210-articulate\\Unit06\\Unit06.csproj",
+        "projectPath": "C:\\Users\\jacob\\Documents\\BYUI\\Fall 2022\\Programming with Classes\\group final\\cse210-final\\Unit06.csproj",
         "packagesPath": "C:\\Users\\jacob\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\jacob\\Documents\\BYUI\\Fall 2022\\Programming with Classes\\cse210-articulate\\Unit06\\obj\\",
+        "outputPath": "C:\\Users\\jacob\\Documents\\BYUI\\Fall 2022\\Programming with Classes\\group final\\cse210-final\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\jacob\\AppData\\Roaming\\NuGet\\NuGet.Config"

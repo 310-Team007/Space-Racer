@@ -63,6 +63,7 @@ namespace Unit06
         // LEVELS
         public static string LEVEL_FILE = "Assets/Data/level-{0:000}.txt";
         public static int BASE_LEVELS = 5;
+        public static int NUMBER_ROCKETS = 2;
 
         // ----------------------------------------------------------------------------------------- 
         // SCRIPTING CONSTANTS
