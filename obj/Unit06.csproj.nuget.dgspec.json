@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "/Users/sydniecziep/Desktop/CSE 210/cse210-final/Unit06.csproj": {}
+    "C:\\Users\\david\\Documents\\BYU-I\\Fall 2022\\CSE 210\\CSE 210 Projects\\Team Projects\\cse210_final_project\\cse210-final\\Unit06.csproj": {}
   },
   "projects": {
-    "/Users/sydniecziep/Desktop/CSE 210/cse210-final/Unit06.csproj": {
+    "C:\\Users\\david\\Documents\\BYU-I\\Fall 2022\\CSE 210\\CSE 210 Projects\\Team Projects\\cse210_final_project\\cse210-final\\Unit06.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "/Users/sydniecziep/Desktop/CSE 210/cse210-final/Unit06.csproj",
+        "projectUniqueName": "C:\\Users\\david\\Documents\\BYU-I\\Fall 2022\\CSE 210\\CSE 210 Projects\\Team Projects\\cse210_final_project\\cse210-final\\Unit06.csproj",
         "projectName": "Unit06",
-        "projectPath": "/Users/sydniecziep/Desktop/CSE 210/cse210-final/Unit06.csproj",
-        "packagesPath": "/Users/sydniecziep/.nuget/packages/",
-        "outputPath": "/Users/sydniecziep/Desktop/CSE 210/cse210-final/obj/",
+        "projectPath": "C:\\Users\\david\\Documents\\BYU-I\\Fall 2022\\CSE 210\\CSE 210 Projects\\Team Projects\\cse210_final_project\\cse210-final\\Unit06.csproj",
+        "packagesPath": "C:\\Users\\david\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\david\\Documents\\BYU-I\\Fall 2022\\CSE 210\\CSE 210 Projects\\Team Projects\\cse210_final_project\\cse210-final\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "/Users/sydniecziep/.nuget/NuGet/NuGet.Config"
+          "C:\\Users\\david\\AppData\\Roaming\\NuGet\\NuGet.Config"
         ],
         "originalTargetFrameworks": [
           "net6.0"
@@ -59,7 +59,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/x64/sdk/6.0.403/RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.400\\RuntimeIdentifierGraph.json"
         }
       }
     }
