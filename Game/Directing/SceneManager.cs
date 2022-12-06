@@ -167,28 +167,35 @@ namespace Unit06.Game.Directing
             string filename = string.Format(Constants.LEVEL_FILE, level);
             List<List<string>> rows = LoadLevel(filename);
 
-            for (int r = 0; r < rows.Count; r++)
+            for (int m = 0; m < 20; m++)
             {
-                for (int c = 0; c < rows[r].Count; c++)
-                {
-                    int x = Constants.FIELD_LEFT + c * Constants.BRICK_WIDTH;
-                    int y = Constants.FIELD_TOP + r * Constants.BRICK_HEIGHT;
+                Random random = new Random();
+            
+                int x = Constants.FIELD_LEFT;
+                int y = random.Next(0, 650);
 
-                    string color = rows[r][c][0].ToString();
-                    int frames = (int)Char.GetNumericValue(rows[r][c][1]);
-                    int points = Constants.BRICK_POINTS;
+                // string color = rows[m][c][0].ToString();
+                // int frames = (int)Char.GetNumericValue(rows[m][c][1]);
+                int points = Constants.BRICK_POINTS;
 
-                    Point position = new Point(x, y);
-                    Point size = new Point(Constants.BRICK_WIDTH, Constants.BRICK_HEIGHT);
-                    Point velocity = new Point(0, 0);
-                    List<string> images = Constants.BRICK_IMAGES[color].GetRange(0, frames);
+                Point position = new Point(x, y);
+                Point size = new Point(Constants.BRICK_WIDTH, Constants.BRICK_HEIGHT);
 
-                    Body body = new Body(position, size, velocity);
-                    Animation animation = new Animation(images, Constants.BRICK_RATE, 1);
-                    
-                    Brick brick = new Brick(body, animation, points, false);
-                    cast.AddActor(Constants.BRICK_GROUP, brick);
+                //Rocks coming from left and right
+                Point velocity = new Point(-1, 0);
+                if (m % 2 == 0)
+                { 
+                    velocity = new Point(1, 0);
                 }
+
+                List<string> images = Constants.BRICK_IMAGES["b"].GetRange(0, 1);
+
+                Body body = new Body(position, size, velocity);
+                Animation animation = new Animation(images, Constants.BRICK_RATE, 1);
+                
+                Brick brick = new Brick(body, animation, points, false);
+                cast.AddActor(Constants.BRICK_GROUP, brick);
+
             }
         }
 
