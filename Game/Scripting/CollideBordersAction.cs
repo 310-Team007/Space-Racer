@@ -96,6 +96,28 @@ namespace Unit06.Game.Scripting
                 //     }
                 }
             }
+            List<Actor> rockets = cast.GetActors(Constants.RACKET_GROUP);
+            
+            Racket rocket1 = (Racket)rockets[0];
+            Racket rocket2 = (Racket)rockets[1];
+            Body body1 = rocket1.GetBody();
+            Point position1 = body1.GetPosition();
+            int y1 = position1.GetY();
+
+            Body body2 = rocket2.GetBody();
+            Point position2 = body2.GetPosition();
+            int y2 = position2.GetY();
+
+            if (y1 <= 0)
+            {
+                // callback.OnNext(Constants.GAME_OVER);
+                callback.OnNext(Constants.PLAYER1_WINS);
+            }
+            if (y2 <= 0)
+            {
+                // callback.OnNext(Constants.GAME_OVER);
+                callback.OnNext(Constants.PLAYER2_WINS);
+            }
         }
     }
 }

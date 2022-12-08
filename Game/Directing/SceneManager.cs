@@ -39,6 +39,15 @@ namespace Unit06.Game.Directing
             {
                 PrepareInPlay(cast, script);
             }
+            else if (scene == Constants.PLAYER1_WINS)
+            {
+                PreparePlayer1Wins(cast, script);
+            }
+            else if (scene == Constants.PLAYER2_WINS)
+            {
+                PreparePlayer2Wins(cast, script);
+            }
+            
             else if (scene == Constants.GAME_OVER)
             {
                 PrepareGameOver(cast, script);
@@ -127,6 +136,35 @@ namespace Unit06.Game.Directing
             AddBall(cast);
             AddRacket(cast);
             AddDialog(cast, Constants.WAS_GOOD_GAME);
+            // AddDialog(cast, Constants.PLAYER1_WINS);
+
+            script.ClearAllActions();
+
+            TimedChangeSceneAction ta = new TimedChangeSceneAction(Constants.NEW_GAME, 5, DateTime.Now);
+            script.AddAction(Constants.INPUT, ta);
+
+            AddOutputActions(script);
+        }
+        private void PreparePlayer1Wins(Cast cast, Script script)
+        {
+            AddBall(cast);
+            AddRacket(cast);
+            AddDialog(cast, Constants.PLAYER1_WINS);
+            // AddDialog(cast, Constants.PLAYER1_WINS);
+
+            script.ClearAllActions();
+
+            TimedChangeSceneAction ta = new TimedChangeSceneAction(Constants.NEW_GAME, 5, DateTime.Now);
+            script.AddAction(Constants.INPUT, ta);
+
+            AddOutputActions(script);
+        }
+        private void PreparePlayer2Wins(Cast cast, Script script)
+        {
+            AddBall(cast);
+            AddRacket(cast);
+            AddDialog(cast, Constants.PLAYER2_WINS);
+            // AddDialog(cast, Constants.PLAYER1_WINS);
 
             script.ClearAllActions();
 
