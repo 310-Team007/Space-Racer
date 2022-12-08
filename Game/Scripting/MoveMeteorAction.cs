@@ -10,7 +10,7 @@ namespace Unit06.Game.Scripting
 
         public void Execute(Cast cast, Script script, ActionCallback callback)
         {
-            List<Actor> brick_list = new List<Actor>(cast.GetAllActors());
+            List<Actor> brick_list = new List<Actor>(cast.GetActors(Constants.BRICK_GROUP));
 
         foreach (Brick brick in brick_list)
         { 
