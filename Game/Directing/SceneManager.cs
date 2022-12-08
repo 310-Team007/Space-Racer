@@ -171,14 +171,14 @@ namespace Unit06.Game.Directing
             {
                 Random random = new Random();
             
-                int x = Constants.FIELD_LEFT;
+                int x = Constants.FIELD_RIGHT;
                 int y = random.Next(0, 650);
 
                 // string color = rows[m][c][0].ToString();
                 // int frames = (int)Char.GetNumericValue(rows[m][c][1]);
                 int points = Constants.BRICK_POINTS;
 
-                Point position = new Point(x, y);
+                
                 Point size = new Point(Constants.BRICK_WIDTH, Constants.BRICK_HEIGHT);
 
                 //Rocks coming from left and right
@@ -186,7 +186,9 @@ namespace Unit06.Game.Directing
                 if (m % 2 == 0)
                 { 
                     velocity = new Point(1, 0);
+                    x = Constants.FIELD_LEFT;
                 }
+                Point position = new Point(x, y);
 
                 List<string> images = Constants.BRICK_IMAGES["b"].GetRange(0, 1);
 
