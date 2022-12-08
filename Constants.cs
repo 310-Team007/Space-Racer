@@ -119,6 +119,9 @@ namespace Unit06
         public static int RACKET_HEIGHT = 28;
         public static int RACKET_RATE = 6;
         public static int RACKET_VELOCITY = 7;
+        public static int RACKET1_STARTX = 340;
+        public static int RACKET2_STARTX = 680;
+        
 
         // BRICK
         public static string BRICK_GROUP = "bricks";

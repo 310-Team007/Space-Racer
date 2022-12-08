@@ -172,7 +172,7 @@ namespace Unit06.Game.Directing
                 Random random = new Random();
             
                 int x = Constants.FIELD_RIGHT - Constants.BRICK_WIDTH;
-                int y = random.Next(0, 650);
+                int y = random.Next(0, 600);
 
                 // string color = rows[m][c][0].ToString();
                 // int frames = (int)Char.GetNumericValue(rows[m][c][1]);

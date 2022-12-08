@@ -18,24 +18,40 @@ namespace Unit06.Game.Scripting
 
         public void Execute(Cast cast, Script script, ActionCallback callback)
         {
-            Ball ball = (Ball)cast.GetFirstActor(Constants.BALL_GROUP);
-            List<Actor> bricks = cast.GetActors(Constants.BRICK_GROUP);
+            List<Actor> rockets = cast.GetActors(Constants.RACKET_GROUP);
+            List<Actor> rocks_list = cast.GetActors(Constants.BRICK_GROUP);
             Stats stats = (Stats)cast.GetFirstActor(Constants.STATS_GROUP);
-            
-            foreach (Actor actor in bricks)
-            {
-                Brick brick = (Brick)actor;
-                Body brickBody = brick.GetBody();
-                Body ballBody = ball.GetBody();
 
-                if (_physicsService.HasCollided(brickBody, ballBody))
+            Racket rocket1 = (Racket)rockets[0];
+            Racket rocket2 = (Racket)rockets[1];
+            
+            foreach (Actor actor in rocks_list)
+            {
+                Brick rock = (Brick)actor;
+                Body rockBody = rock.GetBody();
+                Body rocket1Body = rocket1.GetBody();
+                Body rocket2Body = rocket2.GetBody();
+
+                if (_physicsService.HasCollided(rockBody, rocket1Body))
                 {
-                    ball.BounceY();
-                    Sound sound = new Sound(Constants.BOUNCE_SOUND);
-                    _audioService.PlaySound(sound);
-                    int points = brick.GetPoints();
-                    stats.AddPoints(points);
-                    cast.RemoveActor(Constants.BRICK_GROUP, brick);
+                    rocket1Body.SetPosition(new Point(Constants.RACKET1_STARTX, Constants.SCREEN_HEIGHT - Constants.RACKET_HEIGHT));
+                    // rocket1.BounceY();
+                    // Sound sound = new Sound(Constants.BOUNCE_SOUND);
+                    // _audioService.PlaySound(sound);
+                    // int points = brick.GetPoints();
+                    // stats.AddPoints(points);
+                    // cast.RemoveActor(Constants.BRICK_GROUP, brick);
+                }
+
+                if (_physicsService.HasCollided(rockBody, rocket2Body))
+                {
+                    rocket2Body.SetPosition(new Point(Constants.RACKET2_STARTX, Constants.SCREEN_HEIGHT - Constants.RACKET_HEIGHT));
+                    // ball.BounceY();
+                    // Sound sound = new Sound(Constants.BOUNCE_SOUND);
+                    // _audioService.PlaySound(sound);
+                    // int points = brick.GetPoints();
+                    // stats.AddPoints(points);
+                    // cast.RemoveActor(Constants.BRICK_GROUP, brick);
                 }
             }
         }
