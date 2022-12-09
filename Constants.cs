@@ -116,7 +116,7 @@ namespace Unit06
             };
 
         public static int RACKET_WIDTH = 106;
-        public static int RACKET_HEIGHT = 28;
+        public static int RACKET_HEIGHT = 60;
         public static int RACKET_RATE = 6;
         public static int RACKET_VELOCITY = 7;
         public static int RACKET1_STARTX = 340;
@@ -174,11 +174,13 @@ namespace Unit06
                 } }
         };
 
-        public static int BRICK_WIDTH = 80;
+        public static int BRICK_WIDTH = 40;
         public static int BRICK_HEIGHT = 28;
         public static double BRICK_DELAY = 0.5;
         public static int BRICK_RATE = 4;
         public static int BRICK_POINTS = 50;
+        public static int BRICK_VELOCITY = 3;
+        public static int BRICK_NUM = 30;
 
         // DIALOG
         public static string DIALOG_GROUP = "dialogs";

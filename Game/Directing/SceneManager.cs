@@ -205,12 +205,14 @@ namespace Unit06.Game.Directing
             string filename = string.Format(Constants.LEVEL_FILE, level);
             List<List<string>> rows = LoadLevel(filename);
 
-            for (int m = 0; m < 20; m++)
+            for (int m = 0; m < Constants.BRICK_NUM
+            ; m++)
             {
-                Random random = new Random();
+                Random randomx = new Random();
+                Random randomy = new Random();
             
-                int x = Constants.FIELD_RIGHT - Constants.BRICK_WIDTH;
-                int y = random.Next(0, 600);
+                int x = randomx.Next(0, Constants.FIELD_RIGHT - Constants.BRICK_WIDTH);
+                int y = randomy.Next(0, Constants.SCREEN_HEIGHT - Constants.RACKET_HEIGHT);
 
                 // string color = rows[m][c][0].ToString();
                 // int frames = (int)Char.GetNumericValue(rows[m][c][1]);
@@ -220,10 +222,10 @@ namespace Unit06.Game.Directing
                 Point size = new Point(Constants.BRICK_WIDTH, Constants.BRICK_HEIGHT);
 
                 //Rocks coming from left and right
-                Point velocity = new Point(-1, 0);
+                Point velocity = new Point(-Constants.BRICK_VELOCITY, 0);
                 if (m % 2 == 0)
                 { 
-                    velocity = new Point(1, 0);
+                    velocity = new Point(Constants.BRICK_VELOCITY, 0);
                     x = Constants.FIELD_LEFT;
                 }
                 Point position = new Point(x, y);
