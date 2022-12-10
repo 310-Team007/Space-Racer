@@ -36,8 +36,8 @@ namespace Unit06.Game.Scripting
                 {
                     rocket1Body.SetPosition(new Point(Constants.RACKET1_STARTX, Constants.SCREEN_HEIGHT - Constants.RACKET_HEIGHT));
                     // rocket1.BounceY();
-                    // Sound sound = new Sound(Constants.BOUNCE_SOUND);
-                    // _audioService.PlaySound(sound);
+                    Sound sound = new Sound(Constants.BOUNCE_SOUND);
+                    _audioService.PlaySound(sound);
                     // int points = brick.GetPoints();
                     // stats.AddPoints(points);
                     // cast.RemoveActor(Constants.BRICK_GROUP, brick);
@@ -47,8 +47,8 @@ namespace Unit06.Game.Scripting
                 {
                     rocket2Body.SetPosition(new Point(Constants.RACKET2_STARTX, Constants.SCREEN_HEIGHT - Constants.RACKET_HEIGHT));
                     // ball.BounceY();
-                    // Sound sound = new Sound(Constants.BOUNCE_SOUND);
-                    // _audioService.PlaySound(sound);
+                    Sound sound = new Sound(Constants.BOUNCE_SOUND);
+                    _audioService.PlaySound(sound);
                     // int points = brick.GetPoints();
                     // stats.AddPoints(points);
                     // cast.RemoveActor(Constants.BRICK_GROUP, brick);
