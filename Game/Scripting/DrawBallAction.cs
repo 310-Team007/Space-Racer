@@ -28,7 +28,7 @@ namespace Unit06.Game.Scripting
 
             Image image = ball.GetImage();
             Point position = body.GetPosition();
-            _videoService.DrawImage(image, position);
+            // _videoService.DrawImage(image, position);
         }
     }
 }

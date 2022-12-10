@@ -225,7 +225,6 @@ namespace Unit06.Game.Directing
                 if (m % 2 == 0)
                 { 
                     velocity = new Point(Constants.BRICK_VELOCITY, 0);
-                    x = Constants.FIELD_LEFT;
                 }
                 Point position = new Point(x, y);
 
@@ -281,16 +280,25 @@ namespace Unit06.Game.Directing
         {
             cast.ClearActors(Constants.RACKET_GROUP);
         
-            int x = Constants.CENTER_X - Constants.RACKET_WIDTH / 2;
+            int x1 = Constants.RACKET1_STARTX;
             int y = Constants.SCREEN_HEIGHT - Constants.RACKET_HEIGHT;
+
+            int x2 = Constants.RACKET2_STARTX;
         
-            Point position = new Point(x, y);
+            Point position1 = new Point(x1, y);
+            Point position2 = new Point(x2, y);
+
             Point size = new Point(Constants.RACKET_WIDTH, Constants.RACKET_HEIGHT);
             Point velocity = new Point(0, 0);
 
             for (int i = 0; i < Constants.NUMBER_ROCKETS; i++)
                 {
-                    Body body = new Body(position, size, velocity);
+                    Body body = new Body(position1, size, velocity);
+                    if (i == 1)
+                    {
+                        body = new Body(position2, size, velocity);
+                    }
+                    
                     Animation animation = new Animation(Constants.RACKET_IMAGES, Constants.RACKET_RATE, 0);
                     Racket racket = new Racket(body, animation, false);
         
