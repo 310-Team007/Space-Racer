@@ -52,6 +52,7 @@ namespace Unit06.Game.Scripting
                     // int points = brick.GetPoints();
                     // stats.AddPoints(points);
                     // cast.RemoveActor(Constants.BRICK_GROUP, brick);
+                    //Random comment
                 }
             }
         }
