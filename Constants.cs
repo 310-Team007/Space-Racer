@@ -115,7 +115,7 @@ namespace Unit06
                 "Assets/Images/102.png"
             };
 
-        public static int RACKET_WIDTH = 106;
+        public static int RACKET_WIDTH = 20;
         public static int RACKET_HEIGHT = 60;
         public static int RACKET_RATE = 6;
         public static int RACKET_VELOCITY = 7;
@@ -174,13 +174,13 @@ namespace Unit06
                 } }
         };
 
-        public static int BRICK_WIDTH = 40;
-        public static int BRICK_HEIGHT = 28;
+        public static int BRICK_WIDTH = 5;
+        public static int BRICK_HEIGHT = 5;
         public static double BRICK_DELAY = 0.5;
         public static int BRICK_RATE = 4;
         public static int BRICK_POINTS = 50;
         public static int BRICK_VELOCITY = 3;
-        public static int BRICK_NUM = 30;
+        public static int BRICK_NUM = 50;
 
         // DIALOG
         public static string DIALOG_GROUP = "dialogs";

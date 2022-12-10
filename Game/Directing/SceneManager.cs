@@ -208,11 +208,10 @@ namespace Unit06.Game.Directing
             for (int m = 0; m < Constants.BRICK_NUM
             ; m++)
             {
-                Random randomx = new Random();
-                Random randomy = new Random();
+                Random random = new Random();
             
-                int x = randomx.Next(0, Constants.FIELD_RIGHT - Constants.BRICK_WIDTH);
-                int y = randomy.Next(0, Constants.SCREEN_HEIGHT - Constants.RACKET_HEIGHT);
+                int x = random.Next(0, Constants.FIELD_RIGHT - Constants.BRICK_WIDTH);
+                int y = random.Next(0, Constants.SCREEN_HEIGHT - Constants.RACKET_HEIGHT);
 
                 // string color = rows[m][c][0].ToString();
                 // int frames = (int)Char.GetNumericValue(rows[m][c][1]);
