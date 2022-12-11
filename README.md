@@ -16,14 +16,6 @@ the Activity Bar. Next, select the project you'd like to run from the
 drop down list at the top of the Side Bar. Lastly, click the green 
 arrow or "start debugging" button.
 
-## Project Structure
-The project files and folders are organized as follows:
-```
-root                    (project root folder)
-+-- Game                (source code folder)
-+-- Program.cs          (program entry point)    
-+-- README.md           (general info)
-+-- Unit04.csproj       (dotnet project file)
 ```
 
 ## Required Technologies
