@@ -1,7 +1,5 @@
-# cse210-final
-Simon Carless once described robotfindskitten as "less a game and more a way of 
-life ... It's fun to wander around until you find a kitten, at which point you feel 
-happy and can start again". I don't think I could have said it better myself!
+# Rocket Racer
+In this intergalactic game, two rockets race each other to the end. All while trying to dodge meteors. 
 
 ---
 ## Getting Started
@@ -18,20 +16,8 @@ the Activity Bar. Next, select the project you'd like to run from the
 drop down list at the top of the Side Bar. Lastly, click the green 
 arrow or "start debugging" button.
 
-## Project Structure
-The project files and folders are organized as follows:
-```
-root                    (project root folder)
-+-- Game                (source code folder)
-+-- Program.cs          (program entry point)    
-+-- README.md           (general info)
-+-- Unit04.csproj       (dotnet project file)
 ```
 
 ## Required Technologies
 * dotnet 6.0
 * raylib-cs 3.7.0.1
-
-## Authors
-* Matt Manley (manleym@byui.edu)
-* Scott Burton (burtons@byui.edu)
