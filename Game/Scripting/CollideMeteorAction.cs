@@ -5,12 +5,12 @@ using Unit06.Game.Services;
 
 namespace Unit06.Game.Scripting
 {
-    public class CollideBrickAction : Action
+    public class CollideMeteorAction : Action
     {
         private AudioService _audioService;
         private PhysicsService _physicsService;
         
-        public CollideBrickAction(PhysicsService physicsService, AudioService audioService)
+        public CollideMeteorAction(PhysicsService physicsService, AudioService audioService)
         {
             this._physicsService = physicsService;
             this._audioService = audioService;
@@ -18,23 +18,23 @@ namespace Unit06.Game.Scripting
 
         public void Execute(Cast cast, Script script, ActionCallback callback)
         {
-            List<Actor> rockets = cast.GetActors(Constants.RACKET_GROUP);
-            List<Actor> rocks_list = cast.GetActors(Constants.BRICK_GROUP);
+            List<Actor> rockets = cast.GetActors(Constants.ROCKET_GROUP);
+            List<Actor> meteor_list = cast.GetActors(Constants.METEOR_GROUP);
             Stats stats = (Stats)cast.GetFirstActor(Constants.STATS_GROUP);
 
-            Racket rocket1 = (Racket)rockets[0];
-            Racket rocket2 = (Racket)rockets[1];
+            Rocket rocket1 = (Rocket)rockets[0];
+            Rocket rocket2 = (Rocket)rockets[1];
             
-            foreach (Actor actor in rocks_list)
+            foreach (Actor actor in meteor_list)
             {
-                Brick rock = (Brick)actor;
-                Body rockBody = rock.GetBody();
+                Meteor meteor = (Meteor)actor;
+                Body meteorBody = meteor.GetBody();
                 Body rocket1Body = rocket1.GetBody();
                 Body rocket2Body = rocket2.GetBody();
 
-                if (_physicsService.HasCollided(rockBody, rocket1Body))
+                if (_physicsService.HasCollided(meteorBody, rocket1Body))
                 {
-                    rocket1Body.SetPosition(new Point(Constants.RACKET1_STARTX, Constants.SCREEN_HEIGHT - Constants.RACKET_HEIGHT));
+                    rocket1Body.SetPosition(new Point(Constants.ROCKET1_STARTX, Constants.SCREEN_HEIGHT - Constants.ROCKET_HEIGHT));
                     // rocket1.BounceY();
                     Sound sound = new Sound(Constants.BOUNCE_SOUND);
                     _audioService.PlaySound(sound);
@@ -43,9 +43,9 @@ namespace Unit06.Game.Scripting
                     // cast.RemoveActor(Constants.BRICK_GROUP, brick);
                 }
 
-                if (_physicsService.HasCollided(rockBody, rocket2Body))
+                if (_physicsService.HasCollided(meteorBody, rocket2Body))
                 {
-                    rocket2Body.SetPosition(new Point(Constants.RACKET2_STARTX, Constants.SCREEN_HEIGHT - Constants.RACKET_HEIGHT));
+                    rocket2Body.SetPosition(new Point(Constants.ROCKET2_STARTX, Constants.SCREEN_HEIGHT - Constants.ROCKET_HEIGHT));
                     // ball.BounceY();
                     Sound sound = new Sound(Constants.BOUNCE_SOUND);
                     _audioService.PlaySound(sound);

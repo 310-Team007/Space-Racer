@@ -10,11 +10,11 @@ namespace Unit06.Game.Scripting
 
         public void Execute(Cast cast, Script script, ActionCallback callback)
         {
-            List<Actor> brick_list = new List<Actor>(cast.GetActors(Constants.BRICK_GROUP));
+            List<Actor> meteor_list = new List<Actor>(cast.GetActors(Constants.METEOR_GROUP));
 
-        foreach (Brick brick in brick_list)
+        foreach (Meteor meteor in meteor_list)
         { 
-            Body body = brick.GetBody();
+            Body body = meteor.GetBody();
             Point position = body.GetPosition();
             Point velocity = body.GetVelocity();
             position = position.Add(velocity);

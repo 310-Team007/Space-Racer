@@ -3,18 +3,18 @@ using System.Collections.Generic;
 
 namespace Unit06.Game.Scripting
 {
-    public class MoveRacketAction : Action
+    public class MoveRocketAction : Action
     {
-        public MoveRacketAction()
+        public MoveRocketAction()
         {
         }
 
         public void Execute(Cast cast, Script script, ActionCallback callback)
         {
-            List<Actor> rackets_list = cast.GetActors(Constants.RACKET_GROUP);
-            foreach (Racket racket in rackets_list)
+            List<Actor> rockets_list = cast.GetActors(Constants.ROCKET_GROUP);
+            foreach (Rocket rocket in rockets_list)
             {
-                Body body = racket.GetBody();
+                Body body = rocket.GetBody();
                 Point position = body.GetPosition();
                 Point velocity = body.GetVelocity();
                 int x = position.GetX();
@@ -24,9 +24,9 @@ namespace Unit06.Game.Scripting
                 {
                     position = new Point(0, position.GetY());
                 }
-                else if (x > Constants.SCREEN_WIDTH - Constants.RACKET_WIDTH)
+                else if (x > Constants.SCREEN_WIDTH - Constants.ROCKET_WIDTH)
                 {
-                    position = new Point(Constants.SCREEN_WIDTH - Constants.RACKET_WIDTH,
+                    position = new Point(Constants.SCREEN_WIDTH - Constants.ROCKET_WIDTH,
                         position.GetY());
                 }
 

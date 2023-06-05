@@ -5,61 +5,61 @@ using System.Collections.Generic;
 
 namespace Unit06.Game.Scripting
 {
-    public class ControlRacketAction : Action
+    public class ControlRocketAction : Action
     {
         private KeyboardService _keyboardService;
 
-        public ControlRacketAction(KeyboardService keyboardService)
+        public ControlRocketAction(KeyboardService keyboardService)
         {
             this._keyboardService = keyboardService;
         }
 
         public void Execute(Cast cast, Script script, ActionCallback callback)
         {
-            List<Actor> rackets_list = cast.GetActors(Constants.RACKET_GROUP);
-            Racket racket1 = (Racket)rackets_list[0];
-            Racket racket2 = (Racket)rackets_list[1];
+            List<Actor> rockets_list = cast.GetActors(Constants.ROCKET_GROUP);
+            Rocket rocket1 = (Rocket)rockets_list[0];
+            Rocket rocket2 = (Rocket)rockets_list[1];
             if (_keyboardService.IsKeyDown(Constants.LEFT))
             {
-                racket1.SwingLeft();
+                rocket1.SwingLeft();
             }
             else if (_keyboardService.IsKeyDown(Constants.RIGHT))
             {
-                racket1.SwingRight();
+                rocket1.SwingRight();
             }
             else if (_keyboardService.IsKeyDown(Constants.UP))
             {
-                racket1.SwingUp();
+                rocket1.SwingUp();
             }
             else if (_keyboardService.IsKeyDown(Constants.DOWN))
             {
-                racket1.SwingDown();
+                rocket1.SwingDown();
             }
             else
             {
-                racket1.StopMoving();
+                rocket1.StopMoving();
             }
 
             // move second racket
             if (_keyboardService.IsKeyDown("a"))
             {
-                racket2.SwingLeft();
+                rocket2.SwingLeft();
             }
             else if (_keyboardService.IsKeyDown("d"))
             {
-                racket2.SwingRight();
+                rocket2.SwingRight();
             }
             else if (_keyboardService.IsKeyDown("w"))
             {
-                racket2.SwingUp();
+                rocket2.SwingUp();
             }
             else if (_keyboardService.IsKeyDown("s"))
             {
-                racket2.SwingDown();
+                rocket2.SwingDown();
             }
             else
             {
-                racket2.StopMoving();
+                rocket2.StopMoving();
             }
         }
     }

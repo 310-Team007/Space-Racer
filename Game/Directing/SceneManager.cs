@@ -60,9 +60,8 @@ namespace Unit06.Game.Directing
             AddLevel(cast);
             AddScore(cast);
             AddLives(cast);
-            AddBall(cast);
-            AddBricks(cast);
-            AddRacket(cast);
+            AddMeteors(cast);
+            AddRocket(cast);
             AddDialog(cast, Constants.ENTER_TO_START);
 
             script.ClearAllActions();
@@ -77,17 +76,10 @@ namespace Unit06.Game.Directing
             AddReleaseActions(script);
         }
 
-        private void ActivateBall(Cast cast)
-        {
-            Ball ball = (Ball)cast.GetFirstActor(Constants.BALL_GROUP);
-            ball.Release();
-        }
-
         private void PrepareNextLevel(Cast cast, Script script)
         {
-            AddBall(cast);
-            AddBricks(cast);
-            AddRacket(cast);
+            AddMeteors(cast);
+            AddRocket(cast);
             AddDialog(cast, Constants.PREP_TO_LAUNCH);
 
             script.ClearAllActions();
@@ -103,8 +95,7 @@ namespace Unit06.Game.Directing
 
         private void PrepareTryAgain(Cast cast, Script script)
         {
-            AddBall(cast);
-            AddRacket(cast);
+            AddRocket(cast);
             AddDialog(cast, Constants.PREP_TO_LAUNCH);
 
             script.ClearAllActions();
@@ -118,12 +109,11 @@ namespace Unit06.Game.Directing
 
         private void PrepareInPlay(Cast cast, Script script)
         {
-            ActivateBall(cast);
             cast.ClearActors(Constants.DIALOG_GROUP);
 
             script.ClearAllActions();
 
-            ControlRacketAction action = new ControlRacketAction(KeyboardService);
+            ControlRocketAction action = new ControlRocketAction(KeyboardService);
             script.AddAction(Constants.INPUT, action);
 
             AddUpdateActions(script);    
@@ -133,10 +123,8 @@ namespace Unit06.Game.Directing
 
         private void PrepareGameOver(Cast cast, Script script)
         {
-            AddBall(cast);
-            AddRacket(cast);
+            AddRocket(cast);
             AddDialog(cast, Constants.WAS_GOOD_GAME);
-            // AddDialog(cast, Constants.PLAYER1_WINS);
 
             script.ClearAllActions();
 
@@ -147,10 +135,8 @@ namespace Unit06.Game.Directing
         }
         private void PreparePlayer1Wins(Cast cast, Script script)
         {
-            AddBall(cast);
-            AddRacket(cast);
+            AddRocket(cast);
             AddDialog(cast, Constants.PLAYER1_WINS);
-            // AddDialog(cast, Constants.PLAYER1_WINS);
 
             script.ClearAllActions();
 
@@ -161,10 +147,8 @@ namespace Unit06.Game.Directing
         }
         private void PreparePlayer2Wins(Cast cast, Script script)
         {
-            AddBall(cast);
-            AddRacket(cast);
+            AddRocket(cast);
             AddDialog(cast, Constants.PLAYER2_WINS);
-            // AddDialog(cast, Constants.PLAYER1_WINS);
 
             script.ClearAllActions();
 
@@ -178,63 +162,45 @@ namespace Unit06.Game.Directing
         // casting methods
         // -----------------------------------------------------------------------------------------
 
-        private void AddBall(Cast cast)
+        private void AddMeteors(Cast cast)
         {
-            cast.ClearActors(Constants.BALL_GROUP);
-        
-            int x = Constants.CENTER_X - Constants.BALL_WIDTH / 2;
-            int y = Constants.SCREEN_HEIGHT - Constants.RACKET_HEIGHT - Constants.BALL_HEIGHT;
-        
-            Point position = new Point(x, y);
-            Point size = new Point(Constants.BALL_WIDTH, Constants.BALL_HEIGHT);
-            Point velocity = new Point(0, 0);
-        
-            Body body = new Body(position, size, velocity);
-            Image image = new Image(Constants.BALL_IMAGE);
-            Ball ball = new Ball(body, image, false);
-        
-            cast.AddActor(Constants.BALL_GROUP, ball);
-        }
-
-        private void AddBricks(Cast cast)
-        {
-            cast.ClearActors(Constants.BRICK_GROUP);
+            cast.ClearActors(Constants.METEOR_GROUP);
 
             Stats stats = (Stats)cast.GetFirstActor(Constants.STATS_GROUP);
             int level = stats.GetLevel() % Constants.BASE_LEVELS;
             string filename = string.Format(Constants.LEVEL_FILE, level);
             List<List<string>> rows = LoadLevel(filename);
 
-            for (int m = 0; m < Constants.BRICK_NUM
+            for (int m = 0; m < Constants.METEOR_NUM
             ; m++)
             {
                 Random random = new Random();
             
-                int x = random.Next(0, Constants.FIELD_RIGHT - Constants.BRICK_WIDTH);
-                int y = random.Next(0, Constants.SCREEN_HEIGHT - Constants.RACKET_HEIGHT);
+                int x = random.Next(0, Constants.FIELD_RIGHT - Constants.METEOR_WIDTH);
+                int y = random.Next(0, Constants.SCREEN_HEIGHT - Constants.ROCKET_HEIGHT);
 
                 // string color = rows[m][c][0].ToString();
                 // int frames = (int)Char.GetNumericValue(rows[m][c][1]);
-                int points = Constants.BRICK_POINTS;
+                int points = Constants.METEOR_POINTS;
 
                 
-                Point size = new Point(Constants.BRICK_WIDTH, Constants.BRICK_HEIGHT);
+                Point size = new Point(Constants.METEOR_WIDTH, Constants.METEOR_HEIGHT);
 
                 //Rocks coming from left and right
-                Point velocity = new Point(-Constants.BRICK_VELOCITY, 0);
+                Point velocity = new Point(-Constants.METEOR_VELOCITY, 0);
                 if (m % 2 == 0)
                 { 
-                    velocity = new Point(Constants.BRICK_VELOCITY, 0);
+                    velocity = new Point(Constants.METEOR_VELOCITY, 0);
                 }
                 Point position = new Point(x, y);
 
-                List<string> images = Constants.BRICK_IMAGES["b"].GetRange(0, 1);
+                List<string> images = Constants.METEOR_IMAGES["b"].GetRange(0, 1);
 
                 Body body = new Body(position, size, velocity);
-                Animation animation = new Animation(images, Constants.BRICK_RATE, 1);
+                Animation animation = new Animation(images, Constants.METEOR_RATE, 1);
                 
-                Brick brick = new Brick(body, animation, points, false);
-                cast.AddActor(Constants.BRICK_GROUP, brick);
+                Meteor meteor = new Meteor(body, animation, points, false);
+                cast.AddActor(Constants.METEOR_GROUP, meteor);
 
             }
         }
@@ -276,19 +242,19 @@ namespace Unit06.Game.Directing
             cast.AddActor(Constants.LIVES_GROUP, label);   
         }
 
-        private void AddRacket(Cast cast)
+        private void AddRocket(Cast cast)
         {
-            cast.ClearActors(Constants.RACKET_GROUP);
+            cast.ClearActors(Constants.ROCKET_GROUP);
         
-            int x1 = Constants.RACKET1_STARTX;
-            int y = Constants.SCREEN_HEIGHT - Constants.RACKET_HEIGHT;
+            int x1 = Constants.ROCKET1_STARTX;
+            int y = Constants.SCREEN_HEIGHT - Constants.ROCKET_HEIGHT;
 
-            int x2 = Constants.RACKET2_STARTX;
+            int x2 = Constants.ROCKET2_STARTX;
         
             Point position1 = new Point(x1, y);
             Point position2 = new Point(x2, y);
 
-            Point size = new Point(Constants.RACKET_WIDTH, Constants.RACKET_HEIGHT);
+            Point size = new Point(Constants.ROCKET_WIDTH, Constants.ROCKET_HEIGHT);
             Point velocity = new Point(0, 0);
 
             for (int i = 0; i < Constants.NUMBER_ROCKETS; i++)
@@ -299,10 +265,10 @@ namespace Unit06.Game.Directing
                         body = new Body(position2, size, velocity);
                     }
                     
-                    Animation animation = new Animation(Constants.RACKET_IMAGES, Constants.RACKET_RATE, 0);
-                    Racket racket = new Racket(body, animation, false);
+                    Animation animation = new Animation(Constants.ROCKET_IMAGES, Constants.ROCKET_RATE, 0);
+                    Rocket rocket = new Rocket(body, animation, false);
         
-                    cast.AddActor(Constants.RACKET_GROUP, racket);
+                    cast.AddActor(Constants.ROCKET_GROUP, rocket);
                 }
             
         }
@@ -360,9 +326,8 @@ namespace Unit06.Game.Directing
         {
             script.AddAction(Constants.OUTPUT, new StartDrawingAction(VideoService));
             script.AddAction(Constants.OUTPUT, new DrawHudAction(VideoService));
-            script.AddAction(Constants.OUTPUT, new DrawBallAction(VideoService));
-            script.AddAction(Constants.OUTPUT, new DrawBricksAction(VideoService));
-            script.AddAction(Constants.OUTPUT, new DrawRacketAction(VideoService));
+            script.AddAction(Constants.OUTPUT, new DrawMeteorsAction(VideoService));
+            script.AddAction(Constants.OUTPUT, new DrawRocketAction(VideoService));
             script.AddAction(Constants.OUTPUT, new DrawDialogAction(VideoService));
             script.AddAction(Constants.OUTPUT, new EndDrawingAction(VideoService));
         }
@@ -380,12 +345,11 @@ namespace Unit06.Game.Directing
 
         private void AddUpdateActions(Script script)
         {
-            script.AddAction(Constants.UPDATE, new MoveBallAction());
-            script.AddAction(Constants.UPDATE, new MoveRacketAction());
+            script.AddAction(Constants.UPDATE, new MoveRocketAction());
             script.AddAction(Constants.UPDATE, new MoveMeteorAction());
             script.AddAction(Constants.UPDATE, new CollideBordersAction(PhysicsService, AudioService));
-            script.AddAction(Constants.UPDATE, new CollideBrickAction(PhysicsService, AudioService));
-            script.AddAction(Constants.UPDATE, new CollideRacketAction(PhysicsService, AudioService));
+            script.AddAction(Constants.UPDATE, new CollideMeteorAction(PhysicsService, AudioService));
+            script.AddAction(Constants.UPDATE, new CollideRocketAction(PhysicsService, AudioService));
             script.AddAction(Constants.UPDATE, new CheckOverAction());     
         }
     }

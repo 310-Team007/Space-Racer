@@ -5,24 +5,24 @@ using Unit06.Game.Services;
 
 namespace Unit06.Game.Scripting
 {
-    public class DrawBricksAction : Action
+    public class DrawMeteorsAction : Action
     {
         private VideoService _videoService;
         
-        public DrawBricksAction(VideoService videoService)
+        public DrawMeteorsAction(VideoService videoService)
         {
             this._videoService = videoService;
         }
 
         public void Execute(Cast cast, Script script, ActionCallback callback)
         {
-            List<Actor> bricks = cast.GetActors(Constants.BRICK_GROUP);
-            foreach (Actor actor in bricks)
+            List<Actor> meteors = cast.GetActors(Constants.METEOR_GROUP);
+            foreach (Actor actor in meteors)
             {
-                Brick brick = (Brick)actor;
-                Body body = brick.GetBody();
+                Meteor meteor = (Meteor)actor;
+                Body body = meteor.GetBody();
 
-                if (brick.IsDebug())
+                if (meteor.IsDebug())
                 {
                     Rectangle rectangle = body.GetRectangle();
                     Point size = rectangle.GetSize();
@@ -30,7 +30,7 @@ namespace Unit06.Game.Scripting
                     _videoService.DrawRectangle(size, pos, Constants.PURPLE, false);
                 }
 
-                Animation animation = brick.GetAnimation();
+                Animation animation = meteor.GetAnimation();
                 Image image = animation.NextImage();
                 Point position = body.GetPosition();
                 _videoService.DrawImage(image, position);

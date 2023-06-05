@@ -11,7 +11,7 @@ namespace Unit06
         // ----------------------------------------------------------------------------------------- 
 
         // GAME
-        public static string GAME_NAME = "Batter";
+        public static string GAME_NAME = "Space Race";
         public static int FRAME_RATE = 60;
 
         // SCREEN
@@ -105,28 +105,28 @@ namespace Unit06
         public static int BALL_HEIGHT = 28;
         public static int BALL_VELOCITY = 6;
 
-        // RACKET
-        public static string RACKET_GROUP = "rackets";
+        // ROCKET
+        public static string ROCKET_GROUP = "rockets";
         
-        public static List<string> RACKET_IMAGES
+        public static List<string> ROCKET_IMAGES
             = new List<string>() {
                 "Assets/Images/100.png",
                 "Assets/Images/101.png",
                 "Assets/Images/102.png"
             };
 
-        public static int RACKET_WIDTH = 20;
-        public static int RACKET_HEIGHT = 60;
-        public static int RACKET_RATE = 6;
-        public static int RACKET_VELOCITY = 7;
-        public static int RACKET1_STARTX = 680;
-        public static int RACKET2_STARTX = 340;
+        public static int ROCKET_WIDTH = 20;
+        public static int ROCKET_HEIGHT = 60;
+        public static int ROCKET_RATE = 6;
+        public static int ROCKET_VELOCITY = 7;
+        public static int ROCKET1_STARTX = 680;
+        public static int ROCKET2_STARTX = 340;
         
 
-        // BRICK
-        public static string BRICK_GROUP = "bricks";
+        // Meteor
+        public static string METEOR_GROUP = "meteor";
         
-        public static Dictionary<string, List<string>> BRICK_IMAGES
+        public static Dictionary<string, List<string>> METEOR_IMAGES
             = new Dictionary<string, List<string>>() {
                 { "b", new List<string>() {
                     "Assets/Images/010.png",
@@ -174,13 +174,13 @@ namespace Unit06
                 } }
         };
 
-        public static int BRICK_WIDTH = 5;
-        public static int BRICK_HEIGHT = 5;
-        public static double BRICK_DELAY = 0.5;
-        public static int BRICK_RATE = 4;
-        public static int BRICK_POINTS = 50;
-        public static int BRICK_VELOCITY = 3;
-        public static int BRICK_NUM = 50;
+        public static int METEOR_WIDTH = 5;
+        public static int METEOR_HEIGHT = 5;
+        public static double METEOR_DELAY = 0.5;
+        public static int METEOR_RATE = 4;
+        public static int METEOR_POINTS = 50;
+        public static int METEOR_VELOCITY = 3;
+        public static int METEOR_NUM = 50;
 
         // DIALOG
         public static string DIALOG_GROUP = "dialogs";
